@@ -808,13 +808,13 @@ open class DKAssetGroupDetailVC: UIViewController,
 
 	// MARK: - DKImageGroupDataManagerObserver
 
-	func groupDidUpdate(groupId: String) {
+    public func groupDidUpdate(groupId: String) {
 		if self.selectedGroupId == groupId {
 			self.updateTitleView()
 		}
 	}
 
-	func group(groupId: String, didRemoveAssets assets: [DKAsset]) {
+    public func group(groupId: String, didRemoveAssets assets: [DKAsset]) {
         guard let imagePickerController = self.imagePickerController else {
             assertionFailure("Expect imagePickerController")
             return
@@ -827,7 +827,7 @@ open class DKAssetGroupDetailVC: UIViewController,
         }
 	}
 
-    func groupDidUpdateComplete(groupId: String) {
+    public func groupDidUpdateComplete(groupId: String) {
         if self.selectedGroupId == groupId {
             self.resetCachedAssets()
             self.collectionView?.reloadData()
